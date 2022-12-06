@@ -1,2 +1,3 @@
 dbcomenv/*
 dbcommander/app.py
+feeds.db

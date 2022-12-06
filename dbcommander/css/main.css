@@ -1,0 +1,32 @@
+Screen {
+    layout: grid;
+    grid-size: 3;
+}
+
+MenuBar {
+    layout: grid;
+    grid-size: 10;
+}
+
+#two {
+    column-span: 2;
+    tint: magenta 40%;
+}
+
+#menubar {
+    height: 40;
+    background: #68F;
+}
+
+.menutitle {
+    column-span: 9;
+}
+
+.menubutton {
+    column-span: 1;
+}
+
+.box {
+    height: 100%;
+    border: solid green;
+}
