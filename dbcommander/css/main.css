@@ -1,20 +1,60 @@
 Screen {
     layout: grid;
+    grid-size: 5;
+}
+
+.menu {
+    column-span: 5;
+    background: blue;
+    height: 3;
+    layout: horizontal;
+}
+
+
+.mainwindow {
+    layout: horizontal;
+    height: 40;
+}
+
+.sidebar {
+    column-span: 2;
+    height: 100%;
+    background: greenyellow;
+    border: heavy;
+}
+
+
+
+.querywindow {
+    column-span: 2;
+    height: 100%;
+    background: greenyellow;
+}
+
+
+#menubutton {
+    height: 3;
+    color: white;
+}
+
+/* Screen {
+    layout: grid;
     grid-size: 3;
 }
 
 MenuBar {
     layout: grid;
     grid-size: 10;
-}
+} */
 
-#two {
+
+/* #two {
     column-span: 2;
     tint: magenta 40%;
-}
+} */
 
-#menubar {
-    height: 40;
+/* #menu {
+    height: 3;
     background: #68F;
 }
 
@@ -29,4 +69,4 @@ MenuBar {
 .box {
     height: 100%;
     border: solid green;
-}
+} */

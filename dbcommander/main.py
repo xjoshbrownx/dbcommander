@@ -1,64 +1,51 @@
 from textual.app import App, ComposeResult
-from textual.widgets import Placeholder, TreeControl, Button, Header, Static
+from textual.widgets import Placeholder, TreeControl, Button, Header, Static, Footer, DirectoryTree
+from textual.widget import Widget
 
-# class MenuBar():
+
+# class Window(Widget):
+
+#     BINDINGS = [
+#         ("f", "toggle_browser", "Toggle Browser"),
+#     ]
+
 #     def compose(self) -> ComposeResult:
-#         yield Static('DBcommander', id='menutitle')
-#         yield Button('|||', id='hamburger')
-    # static title 
-    # depending on size
-    # either 
-    #     hamburger menu
-    #     4 menu items
-            # file
-            # object
-            # tools
-            # help
+#         yield Widget(name='sidebar', id='sidebar', classes='workingwindow')
+#         yield Widget(name='querywindow', id='querywindow', classes='workingwindow')
 
-# class DataBaseBrowser
-    #browser top row
-        #static title "browser"
-        # 4 buttons on right
-            # query tool
-                # opens query tool in main window
-            # view data 
-                #conditional on view, table, materialized view
-                #opens query tool on table with filter selected
-            # filtered rows
-                # opens popup
-            # search objects
-                # opens popup
-    #tree view for each server
-        # tree view for each database   
-
-# class mainwindow()
-    #6 tabs + open queries
-        #dashboard
-        #properties
-        # SQL
-        # statistics
-        # dependancies
-        # dependants
-
-class MainApp(App):
-    CSS_PATH = "css/main.css"
-    BINDINGS = [
-        ("f", "toggle_tables", "Toggle Tables"),
-        ("q", "quit", "Quit"),
-    ]
-
+class Menu(Widget):
 
     def compose(self) -> ComposeResult:
-        # yield MenuBar()
-        yield Static('DBcommander', id='menutitle')
-        yield Button('|||', id='hamburger', classes='menubar')
+        yield Static("DB Commander", id='menutext', classes='titletext')
+        yield Button("File", id="file", classes="menubutton")
+        yield Button("Object", id="object", classes="menubutton")
+        yield Button("Tools", id="tools", classes="menubutton")
+        yield Button("Help", id="help", classes="menubutton")
 
-        # yield Welcome()
+class MainApp(App):
 
-    def on_button_pressed(self) -> None:
-        self.exit()
+    CSS_PATH = "css/main.css"
+    BINDINGS = [
+        ("f", "toggle_browser", "Toggle Browser"),
+        ("q", "quit", "Quit"),
+        ("d","toggle_dark", "Toggle Darkmode"),
+    ]
 
+    def compose(self) -> ComposeResult:
+        """Create child widgets for the app."""
+        yield Menu(name='menu',id='menubar',classes='menu')
+        yield Widget(name='sidebar', id='sidebar', classes='workingwindow')
+        yield Widget(name='querywindow', id='querywindow', classes='workingwindow')
+        yield Footer()
+
+    def action_toggle_browser(self) -> None:
+        """An action to toggle visiblity of the browser window""" 
+        self.toggle_class('sidebar','-active')
+
+    def action_toggle_dark(self) -> None:
+        """An action to toggle dark mode."""
+        self.dark = not self.dark
 
 if __name__ == "__main__":
-    app = MainApp ()
+    app = MainApp()
     app.run()
