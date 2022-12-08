@@ -1,5 +1,7 @@
 from textual.app import App, ComposeResult
-from textual.widgets import Placeholder, TreeControl, Button, Header, Static, Footer, DirectoryTree
+from textual.widgets import Footer, Button, Static
+from textual.containers import Horizontal 
+# from textual.widgets import Placeholder, TreeControl, Button, Header, Static, Footer, DirectoryTree, Hor
 from textual.widget import Widget
 
 
@@ -13,14 +15,34 @@ from textual.widget import Widget
 #         yield Widget(name='sidebar', id='sidebar', classes='workingwindow')
 #         yield Widget(name='querywindow', id='querywindow', classes='workingwindow')
 
-class Menu(Widget):
-
+class MenuButtons(Horizontal):
     def compose(self) -> ComposeResult:
-        yield Static("DB Commander", id='menutext', classes='titletext')
         yield Button("File", id="file", classes="menubutton")
         yield Button("Object", id="object", classes="menubutton")
         yield Button("Tools", id="tools", classes="menubutton")
         yield Button("Help", id="help", classes="menubutton")
+
+
+class Menu(Widget):
+
+    def compose(self) -> ComposeResult:
+        yield Static("DB Commander", id='menutext', classes='menuitem')
+        # yield MenuButtons(id='menubuttons', classes='menuitem')
+        yield Button("File", id="file", classes="menubutton")
+        yield Button("Object", id="object", classes="menubutton")
+        yield Button("Tools", id="tools", classes="menubutton")
+        yield Button("Help", id="help", classes="menubutton")
+
+class SideBar(Widget):
+
+    def compose(self) -> ComposeResult:
+        yield Static('###SIDEBAR###')
+
+
+class QueryWindow(Widget):
+
+    def compose(self) -> ComposeResult:
+        yield Static('QUERY WINDOW')
 
 class MainApp(App):
 
@@ -34,8 +56,8 @@ class MainApp(App):
     def compose(self) -> ComposeResult:
         """Create child widgets for the app."""
         yield Menu(name='menu',id='menubar',classes='menu')
-        yield Widget(name='sidebar', id='sidebar', classes='workingwindow')
-        yield Widget(name='querywindow', id='querywindow', classes='workingwindow')
+        yield SideBar(name='sidebar', id='sidebar', classes='workingwindow')
+        yield QueryWindow(name='querywindow', id='querywindow', classes='workingwindow')
         yield Footer()
 
     def action_toggle_browser(self) -> None:
