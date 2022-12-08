@@ -1,40 +1,43 @@
 Screen {
     layout: grid;
-    grid-size: 5;
+    grid-size: 10;
+    overflow: auto;
+    /* grid-gutter: 1 2;
+    grid-columns: 1fr;
+    grid-rows: 2fr 1fr 1fr 1fr 1fr 1fr; */
 }
 
-.menu {
-    column-span: 5;
+#menubar {
+    column-span: 10;
     background: blue;
-    height: 3;
-    layout: horizontal;
+    height: 7;
+    layout: grid;
+    grid-size: 10;
+    /* layout: grid;
+    grid-size: 5; */
+    /* margin: 1; */
+    /* min-width: 50; */
+    padding: 1;
 }
 
-
-.mainwindow {
-    layout: horizontal;
+#sidebar {
+    column-span: 3;
     height: 40;
+    background: white;
 }
 
-.sidebar {
-    column-span: 2;
+#querywindow {
+    column-span: 7;
     height: 100%;
-    background: greenyellow;
-    border: heavy;
+    background: greyd;
 }
 
 
-
-.querywindow {
-    column-span: 2;
-    height: 100%;
-    background: greenyellow;
-}
-
-
-#menubutton {
+.menuitem {
     height: 3;
-    color: white;
+    color: red;
+    column-span: 1;
+    /* margin: 1%; */
 }
 
 /* Screen {
