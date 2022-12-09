@@ -1,75 +1,85 @@
 Screen {
     layout: grid;
     grid-size: 10;
-    overflow: auto;
-    /* grid-gutter: 1 2;
-    grid-columns: 1fr;
-    grid-rows: 2fr 1fr 1fr 1fr 1fr 1fr; */
+    /* overflow: auto; */
+    width: auto;
+    grid-rows: 3 60;
+    scrollbar-gutter: stable;
+}
+
+.menubutton {
+    color: red;
+    margin: 0 3;
+    background: #33D;
+}
+
+
+#browsertext {
+    margin: 1 2;
+}
+
+#menutext {
+    color: red;
+    margin: 1;
+    background: #44C;
+}   
+
+#querywindowtext
+{
+    color: #44C;
+    margin: 1;
+}   
+
+.browseritem {
+    color: red;
+}
+
+.querybutton {
+    color: red;
 }
 
 #menubar {
     column-span: 10;
-    background: blue;
-    height: 7;
+    background: #44C;
     layout: grid;
     grid-size: 10;
-    /* layout: grid;
-    grid-size: 5; */
-    /* margin: 1; */
-    /* min-width: 50; */
-    padding: 1;
+    dock: top;
+    height: 3;
+}
+
+#browsercontrol {
+    layout: grid;
+    grid-size: 5 1;
+    height: 3;
+}
+
+
+#querycontrol {
+    layout: grid;
+    grid-size: 8 1;
+    height: 3;
 }
 
 #sidebar {
-    column-span: 3;
-    height: 40;
-    background: white;
+    column-span: 4;
+    height: 70;
+    background: gray;
+    /* height: 100%; */
+    /* border: heavy; */
 }
 
 #querywindow {
-    column-span: 7;
-    height: 100%;
-    background: greyd;
+    column-span: 6;
+    height: 70;
+    background: gray;
+    /* height: 100%; */
+    /* border: heavy; */
 }
 
-
-.menuitem {
-    height: 3;
-    color: red;
-    column-span: 1;
-    /* margin: 1%; */
+#schemabrowser {
+    height: 50;
 }
 
-/* Screen {
-    layout: grid;
-    grid-size: 3;
+#querypane {
+    height: 50;
 }
-
-MenuBar {
-    layout: grid;
-    grid-size: 10;
-} */
-
-
-/* #two {
-    column-span: 2;
-    tint: magenta 40%;
-} */
-
-/* #menu {
-    height: 3;
-    background: #68F;
-}
-
-.menutitle {
-    column-span: 9;
-}
-
-.menubutton {
-    column-span: 1;
-}
-
-.box {
-    height: 100%;
-    border: solid green;
-} */
